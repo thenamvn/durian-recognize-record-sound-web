@@ -1,0 +1,150 @@
+/* CSS gốc cho các phần khác */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#app-container {
+    background-color: #ffffff;
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    text-align: center;
+    width: 25rem;
+    position: relative; /* Để các sóng có thể được đặt tương đối */
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.2rem;
+}
+
+p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.mic-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 10rem; /* Kích thước nút mic lớn hơn */
+    height: 10rem; /* Kích thước nút mic lớn hơn */
+    overflow: visible; /* Để sóng có thể tràn ra ngoài */
+    font-size: 4rem;
+}
+
+
+/* Hiệu ứng sóng tập trung vào icon mic */
+.wave-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.recording .wave-container:before,
+.recording .wave-container:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 13rem; /* Kích thước sóng */
+    height: 13rem; /* Kích thước sóng */
+    border: 4px solid #ff4757; /* Màu sóng */
+    border-radius: 50%;
+    opacity: 0.6; /* Độ mờ của sóng */
+    animation: wave 1.5s infinite; /* Hiệu ứng sóng nhấp nhô */
+    transform: translate(-50%, -50%); /* Đặt sóng vào giữa */
+}
+
+.recording .wave-container:before {
+    animation-delay: 0s; /* Sóng đầu tiên */
+}
+
+.recording .wave-container:after {
+    animation-delay: 0.75s; /* Sóng thứ hai có độ trễ */
+}
+
+@keyframes wave {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5); /* Tăng kích thước sóng */
+        opacity: 0; /* Biến mất dần */
+    }
+}
+
+/* Các thuộc tính liên quan đến kết quả */
+#result {
+    margin-top: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+}
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.file-label:hover {
+    background-color: #0056b3;
+}
+
+#file-input {
+    display: none;
+}
+
+.upload-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+    background-color: #218838;
+}
+
+.upload-button i,
+.file-label i {
+    margin-right: 0.5rem;
+}
+.file-name {
+    font-size: 1rem;
+    color: #555;
+}

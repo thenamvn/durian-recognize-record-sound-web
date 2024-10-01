@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durian.AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/clouds-caafc.appspot.com/o/w3.css?alt=media&token=475d3798-542f-468f-9fdf-e1abbe8cb979">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <div id="app-container">
+        <h1>Durian.AI</h1>
+        <button id="start-recording" class="mic-button">
+            <i id="mic-icon" class="fa-solid fa-microphone"></i>
+            <!-- Div dùng để chứa hiệu ứng sóng -->
+            <div class="wave-container"></div>
+        </button>
+        <div class="file-upload-container">
+            <label for="file-input" class="file-label">
+                <i class="fas fa-file-audio"></i> Choose File
+            </label>
+            <input type="file" id="file-input" accept=".wav, .m4a">
+            <span id="file-name" class="file-name">No file chosen</span>
+            <button id="upload-file" class="upload-button">
+                <i class="fas fa-upload"></i> Upload File
+            </button>
+        </div>
+        <p id="result" style="display: none;">Kết quả dự đoán: <span id="result-text"></span></p>
+    </div>    
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
