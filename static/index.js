@@ -22,6 +22,7 @@ const startRecording = () => {
             document.getElementById('app-container').classList.remove('recording');
             document.getElementById('mic-icon').classList.remove('fa-microphone-slash');
             document.getElementById('mic-icon').classList.add('fa-microphone');
+            document.getElementById('popup').style.display = 'block';
         };
 
         mediaRecorder.start();
@@ -52,10 +53,13 @@ const sendAudioToServer = (audioBlob) => {
     .then(data => {
         resultLabel.style.display = 'block';
         document.getElementById('result-text').textContent = data.result;
-
+        document.getElementById('popup').style.display = 'none';
     })
     .catch(error => {
         console.error('Error sending audio to server:', error);
+        document.getElementById('popup').style.display = 'none';
+        resultLabel.style.display = 'block';
+        document.getElementById('result-text').textContent = "Unkown";
     });
 };
 

@@ -22,6 +22,9 @@ body {
     text-align: center;
     width: 25rem;
     position: relative; /* Để các sóng có thể được đặt tương đối */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -47,16 +50,16 @@ p {
     font-size: 4rem;
 }
 
-
 /* Hiệu ứng sóng tập trung vào icon mic */
 .wave-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 10rem;
-    height: 10rem;
+    position: relative;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .recording .wave-container:before,
