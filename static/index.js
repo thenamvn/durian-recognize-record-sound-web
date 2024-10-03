@@ -61,6 +61,8 @@ const sendAudioToServer = (audioBlob) => {
 
 const handleFileUpload = () => {
     const fileInput = document.getElementById('file-input');
+    document.getElementById('result-text').textContent = '';
+    resultLabel.style.display = 'none';
     const file = fileInput.files[0];
     if (file) {
         sendAudioToServer(file);
